@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEL Date Calculation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-semibold text-blue-600 mb-6 text-center">MEL CALCULATOR</h1>
+        AIRCRAFT RELESED IAW MEL REF___________ CAT '___' VALID TILL ___________ MIDNIGHT. MELP COMPLIED. COCKPIT PLACARDED AND CREW BREIFED. NOTE TO ENGG MENTIONED.
+        <div class="mb-6 space-y-4">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700 font-medium">Category A:</span>
+                <span id="resultDateA" class="bg-gray-200 border rounded py-2 px-4 text-gray-800">As per remarks</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700 font-medium">Category B:</span>
+                <span id="resultDateB" class="bg-gray-200 border rounded py-2 px-4 text-gray-800"></span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700 font-medium">Category C:</span>
+                <span id="resultDateC" class="bg-gray-200 border rounded py-2 px-4 text-gray-800"></span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-700 font-medium">Category D:</span>
+                <span id="resultDateD" class="bg-gray-200 border rounded py-2 px-4 text-gray-800"></span>
+            </div>
+        </div>
+        <p class="text-gray-500 text-sm mt-4">
+            Dates are calculated as: Category A - No date, Category B - Today + 3 days, Category C - Today + 10 days, Category D - Today + 120 days.
+        </p>
+    </div>
+
+    <script>
+        const resultDateB = document.getElementById("resultDateB");
+        const resultDateC = document.getElementById("resultDateC");
+        const resultDateD = document.getElementById("resultDateD");
+
+        window.onload = function() {
+            resultDateB.textContent = addDays(3);
+            resultDateC.textContent = addDays(10);
+            resultDateD.textContent = addDays(120);
+        };
+
+        function addDays(days) {
+            const currentDate = new Date();
+            currentDate.setDate(currentDate.getDate() + days);
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() + 1;
+            const year = currentDate.getFullYear();
+            return `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}-${year}`;
+        }
+    </script>
+</body>
+</html>

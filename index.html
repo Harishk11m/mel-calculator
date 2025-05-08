@@ -16,6 +16,11 @@
         .filled-text {
             color: red;
         }
+        .date-column {
+            min-width: 150px; /* Adjust this value as needed */
+            text-align: center;
+            display: inline-block;
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen">
@@ -26,19 +31,19 @@
         <div class="mb-6 space-y-4 mt-4">
             <div class="flex justify-between items-center cursor-pointer" onclick="selectCategory('A', 'As per remarks')">
                 <span class="text-gray-700 font-medium">Category A:</span>
-                <span id="resultDateA" class="bg-gray-200 border rounded py-2 px-4 text-gray-800 selected-date">As per remarks</span>
+                <span id="resultDateA" class="bg-gray-200 border rounded py-2 px-4 text-gray-800 selected-date date-column">As per remarks</span>
             </div>
             <div class="flex justify-between items-center cursor-pointer" onclick="selectCategory('B', formatDateTimeUTC(addDaysUTC(3), 'date'))">
                 <span class="text-gray-700 font-medium">Category B:</span>
-                <span id="resultDateB" class="bg-gray-200 border rounded py-2 px-4 text-gray-800"></span>
+                <span id="resultDateB" class="bg-gray-200 border rounded py-2 px-4 text-gray-800 date-column"></span>
             </div>
             <div class="flex justify-between items-center cursor-pointer" onclick="selectCategory('C', formatDateTimeUTC(addDaysUTC(10), 'date'))">
                 <span class="text-gray-700 font-medium">Category C:</span>
-                <span id="resultDateC" class="bg-gray-200 border rounded py-2 px-4 text-gray-800"></span>
+                <span id="resultDateC" class="bg-gray-200 border rounded py-2 px-4 text-gray-800 date-column"></span>
             </div>
             <div class="flex justify-between items-center cursor-pointer" onclick="selectCategory('D', formatDateTimeUTC(addDaysUTC(120), 'date'))">
                 <span class="text-gray-700 font-medium">Category D:</span>
-                <span id="resultDateD" class="bg-gray-200 border rounded py-2 px-gray-800"></span>
+                <span id="resultDateD" class="bg-gray-200 border rounded py-2 px-gray-800 date-column"></span>
             </div>
         </div>
         <p class="text-gray-500 text-sm mt-4">
